@@ -33,14 +33,107 @@ a {
     align-items: center;
     padding: 1rem;
     position: fixed;
+    gap:5rem;
+    top: 0;
+    left: 0;
 }
-.sidebar{
+.logo-text{
+    margin-left: 1rem;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 2.5rem;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #efe8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.hamburger-menu:hover {
+    transform: scale(1.1);
+}
+
+.search-bar {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.3125rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input[type="text"]:focus {
+    border-color: #333;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 0.5rem 0.75rem; /*data need to be checked*/
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-bar button:hover {
+    transform: scale(1.05);
+}
+
+.user-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.user-info i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.user-info i:hover {
+    transform: scale(1.2);
+}
+
+/*sidebar*/
+.sidebar { 
     position: fixed;
     left: 0;
     height: auto;
     width: 60px;
 }
-.main{
+
+/*main content*/
+.main {
     grid-area: main;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -97,4 +190,39 @@ a {
     align-items: center;
     padding: 10px 20px;
     border: 3px solid;
+}
+.footer .social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer .social a {
+    font-size: 20px;
+    color: #fff;
+    transition: transform 0.2s ease;
+}
+
+.footer .social a:hover {
+    transform: scale(1.2);
+}
+
+.footer .links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer .links a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.footer .links a:hover {
+    transform: scale(1.1);
+}
+
+.footer .copyright {
+    font-size: 0.8rem;
+    text-align: center;
+    flex: 1;
 }
