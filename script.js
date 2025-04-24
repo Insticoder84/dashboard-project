@@ -241,4 +241,12 @@ window.onload = function () {
       pieChart.render();
     }
   };
-
+// Toggle mobile menu
+function toggleMenu() {
+    const mobileMenu = document.getElementById("mobileMenu");
+    if (mobileMenu.style.display === "block") {
+      mobileMenu.style.display = "none"; // Hide the menu
+    } else {
+      mobileMenu.style.display = "block"; // Show the menu
+    }
+  }

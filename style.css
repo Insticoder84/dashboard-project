@@ -12,30 +12,97 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 .container {
     display: grid;
-    grid-template-columns: 60px 1fr;  /*just a sample it need to decided*/
-    grid-template-rows: 50px 1fr 50px; /*just a sample it need to decided*/
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 72px 1fr 50px;
     grid-template-areas: "header header" "sidebar main" "footer footer";
     gap: 0;
     height: 100vh;
     width: 100%;
 }
+
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: auto;
+    width: 60px;
+    grid-area: sidebar;
+    background-color: #0b1120;
+    color: #fff;
+    overflow: hidden;
+    z-index: 999;
+    transition: width 0.5s ease, transform 0.5s ease;
+    border-right: 3px solid #7322FF;
+}
+
+.sidebar:hover {
+    width: 200px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 15px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background-color: #1a1f33;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar ul li i {
+    font-size: 20px;
+}
+
+.sidebar ul li span {
+    display: none;
+    font-size: 16px;
+    color: #7322FF;
+}
+
+.sidebar:hover ul li span {
+    display: inline;
+}
+
 .header {
     grid-area: header;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    position: fixed;
+    position: fixed;  
     gap:5rem;
     top: 0;
     left: 0;
+    background-color:#091030;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
 }
 .logo-text{
     margin-left: 1rem;
@@ -94,7 +161,7 @@ a {
 }
 
 .search-bar button {
-    padding: 0.5rem 0.75rem; /*data need to be checked*/
+    padding: 0.5rem 0.75rem;
     font-size: 1rem;
     border: none;
     border-radius: 0.3125rem;
@@ -124,15 +191,6 @@ a {
     transform: scale(1.2);
 }
 
-/*sidebar*/
-.sidebar { 
-    position: fixed;
-    left: 0;
-    height: auto;
-    width: 60px;
-}
-
-/*main content*/
 .main {
     grid-area: main;
     display: grid;
@@ -141,9 +199,23 @@ a {
     grid-template-rows: auto 1fr 1fr;
     gap: 0;
 }
+
 .greet {
     grid-area: greet;
+    background-color: #091030;
+    color: #fff;
+    padding: 2rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    border: 0.1875rem solid;
+    border-image: linear-gradient(90deg, #7322FF, #BA2463) 1;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
 }
+
+.greet:hover {
+    background-color: #350749;
+}
+
 .stats {
     grid-area: stats;
     display: grid;
@@ -154,7 +226,9 @@ a {
     align-items: center;
     justify-items: center;
     border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
 #pi,
 #line {
     width: 100%;
@@ -163,9 +237,18 @@ a {
     border-radius: 10px;
     overflow: hidden;
     object-fit: contain;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: none;
 }
+
 .tasks {
     grid-area: tasks;
+    background-color: #2b1a40;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border-image: linear-gradient(90deg, #9B59B6, #8E44AD) 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -173,7 +256,90 @@ a {
     margin: 10px;
     padding:10px;
     gap: 20px;
+    transition: none;
 }
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-section input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #1a1f33;
+    color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.input-section input[type="text"]:focus {
+    border-color: #7322FF;
+    outline: none;
+}
+
+.input-section button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #7322FF;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.input-section button:hover {
+    background-color: #BA2463;
+    transform: scale(1.05);
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: none;
+    overflow-y: hidden;
+}
+
+#taskList li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+#taskList li {
+    background-color: #1a1f33;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#taskList li button {
+    background-color: #BA2463;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#taskList li button:hover {
+    background-color: #9B59B6;
+    transform: scale(1.1);
+}
+
 .cal {
     grid-area: cal;
     display: flex;
@@ -194,14 +360,19 @@ a {
     object-fit: cover;
     filter: invert(1) hue-rotate(90deg) brightness(1.2) saturate(1.5);
 }
+
 .footer {
     grid-area: footer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border: 3px solid;
+    border-image: linear-gradient(90deg, #34495E, #2C3E50) 1;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 .footer .social {
     display: flex;
     gap: 15px;
@@ -236,4 +407,55 @@ a {
     font-size: 0.8rem;
     text-align: center;
     flex: 1;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #091030;
+    color: #fff;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.close-menu {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+    text-align: right;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.close-menu:hover {
+    transform: scale(1.1);
+}
+
+.mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-menu ul li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #333;
+}
+
+.mobile-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.mobile-menu ul li a:hover {
+    color: #7322FF;
 }
