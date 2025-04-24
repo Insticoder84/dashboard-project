@@ -212,8 +212,19 @@ a {
     border-image: linear-gradient(90deg, #7322FF, #BA2463) 1;
     transition: background-color 0.3s ease;
     font-size: 1rem;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items: center;
+    gap:1rem;
 }
-
+.countdown{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    width:100%;
+    font-size:1.5rem;
+}
 .greet:hover {
     background-color: #350749;
 }
