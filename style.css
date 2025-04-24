@@ -459,3 +459,88 @@ a {
 .mobile-menu ul li a:hover {
     color: #7322FF;
 }
+
+@media (max-width: 700px) {
+    .logo {
+        display: none;
+    }
+    .sidebar {
+        display: none;
+    }
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 72px;
+        grid-template-areas: "header" "main" "footer";
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .greet,
+    .stats,
+    .tasks,
+    .cal {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .stats {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #pi,
+    #line {
+        width: 100%;
+        height: 300px;
+    }
+    .cal {
+        height: 300px;
+    }
+    .cal iframe {
+        height: 100%;
+    }
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .footer .social {
+        justify-content: center;
+    }
+
+    .footer .links {
+        justify-content: center;
+    }
+}
+
+@media(max-width:560px){
+        .header {
+            gap: 1rem;
+        }
+    }
+    @media(max-width:420px){
+        .header {
+            flex-wrap:wrap;
+            align-items: center; 
+            gap: 1rem;
+        }
+    
+        .user-info {
+            order: 2; 
+            width: 100%; 
+            justify-self: flex-end;
+        }
+    
+        .search-bar {
+            order: 3;
+            width: 100%; 
+        }
+    
+        .hamburger-menu {
+            order: 1; 
+        }
+}

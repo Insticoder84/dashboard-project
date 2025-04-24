@@ -250,3 +250,21 @@ function toggleMenu() {
       mobileMenu.style.display = "block"; // Show the menu
     }
   }
+
+
+function handleResize() {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const screenWidth = window.innerWidth;
+  
+    if (screenWidth <= 700) {
+      hamburgerMenu.style.display = 'flex'; // Show the hamburger menu
+    } else {
+      hamburgerMenu.style.display = 'none'; // Hide the hamburger menu
+    }
+  }
+  
+  // Attach the resize event listener
+  window.addEventListener('resize', handleResize);
+  
+  // Call the function on page load to set the initial state
+  handleResize();  
