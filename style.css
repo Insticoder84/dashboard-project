@@ -234,12 +234,10 @@ a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
-    gap: 20px;
-    padding: 10px;
+    padding: 5px;
     align-items: center;
     justify-items: center;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #pi,
@@ -475,7 +473,7 @@ a {
     color: #7322FF;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .logo {
         display: none;
     }
