@@ -96,7 +96,7 @@ a {
     align-items: center;
     padding: 1rem;
     position: fixed;  
-    gap:5rem;
+    gap:1rem;
     top: 0;
     left: 0;
     background-color:#091030;
@@ -473,7 +473,7 @@ a {
     color: #7322FF;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
     .logo {
         display: none;
     }
@@ -536,6 +536,11 @@ a {
         }
     }
     @media(max-width:420px){
+        .container {
+            grid-template-columns: 1fr;
+            grid-template-rows: 110px;
+            grid-template-areas: "header" "main" "footer";
+        }
         .header {
             flex-wrap:wrap;
             align-items: center; 
